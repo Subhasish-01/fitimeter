@@ -1,0 +1,32 @@
+# Dataset
+dataset_path: datasets/food-101
+images_path: datasets/food-101/images
+
+meta_path: datasets/food-101/meta
+
+train_file: datasets/food-101/meta/train.txt
+
+test_file: datasets/food-101/meta/test.txt
+
+# Image
+image_height: 224
+image_width: 224
+channels: 3
+
+# Training
+batch_size: 8
+epochs: 20
+learning_rate: 0.001
+validation_split: 0.2
+seed: 42
+
+# Model
+model_name: MobileNetV2
+
+# Paths
+artifacts_dir: artifacts
+logs_dir: logs
+model_dir: artifacts/model
+
+# Prediction
+confidence_threshold: 0.60

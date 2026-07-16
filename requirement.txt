@@ -1,0 +1,13 @@
+tensorflow==2.15.0
+tensorflow-datasets
+streamlit
+pandas
+numpy
+scikit-learn
+matplotlib
+plotly
+tensorboard
+opencv-python
+Pillow
+PyYAML
+kagglehub

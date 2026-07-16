@@ -1,0 +1,22 @@
+# Virtual Environment
+venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Logs
+logs/
+
+# Trained Models
+artifacts/
+
+# Dataset
+datasets/
+
+# VS Code
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db

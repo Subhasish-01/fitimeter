@@ -8,8 +8,14 @@ __pycache__/
 # Logs
 logs/
 
-# Dataset
-datasets/
+# Ignore everything in datasets
+datasets/*
+
+# But keep nutrition.csv
+!datasets/nutrition.csv
+
+# Ignore the Food-101 dataset
+datasets/food-101/
 
 # VS Code
 .vscode/

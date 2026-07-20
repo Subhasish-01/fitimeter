@@ -7,7 +7,6 @@ scikit-learn
 matplotlib
 plotly
 tensorboard
-opencv-python
 Pillow
 PyYAML
 kagglehub

@@ -6,14 +6,19 @@ from src.logger import logging
 from src.exception import CustomException
 
 
+from src.utils import read_yaml
+
+config = read_yaml("config/config.yaml")
+
+
 @dataclass
 class DataIngestionConfig:
-    dataset_path: str = os.path.join("datasets", "food-101")
-    images_path: str = os.path.join("datasets", "food-101", "images")
-    meta_path: str = os.path.join("datasets", "food-101", "meta")
+    dataset_path: str = config["dataset_path"]
+    images_path: str = config["images_path"]
+    meta_path: str = config["meta_path"]
 
-    train_file: str = os.path.join("datasets", "food-101", "meta", "train.txt")
-    test_file: str = os.path.join("datasets", "food-101", "meta", "test.txt")
+    train_file: str = config["train_file"]
+    test_file: str = config["test_file"]
 
 
 class DataIngestion:

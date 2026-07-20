@@ -8,25 +8,27 @@ train_file: datasets/food-101/meta/train.txt
 
 test_file: datasets/food-101/meta/test.txt
 
+nutrition_csv: datasets/nutrition.csv
+
 # Image
 image_height: 224
 image_width: 224
 channels: 3
 
 # Training
-batch_size: 8
+batch_size: 32
 epochs: 20
-learning_rate: 0.001
+learning_rate: 0.00001
 validation_split: 0.2
 seed: 42
 
 # Model
-model_name: MobileNetV2
+model_name: EfficientNetB0
 
 # Paths
 artifacts_dir: artifacts
 logs_dir: logs
-model_dir: artifacts/model
+model_path: artifacts/food_classifier.keras
 
 # Prediction
 confidence_threshold: 0.60

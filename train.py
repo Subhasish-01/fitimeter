@@ -16,19 +16,11 @@ def main():
         logging.info("Training Pipeline Started")
         logging.info("=" * 50)
 
-        # ==========================
-        # Data Ingestion
-        # ==========================
-
         ingestion = DataIngestion()
 
         train_data, test_data, metadata = ingestion.initiate_data_ingestion()
 
         logging.info("Data Ingestion Completed")
-
-        # ==========================
-        # Data Transformation
-        # ==========================
 
         transformation = DataTransformation()
 
@@ -39,10 +31,6 @@ def main():
         )
 
         logging.info("Data Transformation Completed")
-
-        # ==========================
-        # Model Training
-        # ==========================
 
         trainer = ModelTrainer()
 

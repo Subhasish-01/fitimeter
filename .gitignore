@@ -8,9 +8,6 @@ __pycache__/
 # Logs
 logs/
 
-# Trained Models
-artifacts/
-
 # Dataset
 datasets/
 
@@ -20,3 +17,12 @@ datasets/
 # OS Files
 .DS_Store
 Thumbs.db
+
+# Virtual Environment
+venv/
+
+# Training / Testing
+train.py
+test.py
+check_dataset.py
+create_class_mapping.py

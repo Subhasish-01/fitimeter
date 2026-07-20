@@ -19,6 +19,12 @@ class DataTransformation:
 
     def __init__(self):
         self.config = DataTransformationConfig()
+        self.data_augmentation = tf.keras.Sequential([
+            tf.keras.layers.RandomFlip("horizontal"),
+            tf.keras.layers.RandomRotation(0.1),
+            tf.keras.layers.RandomZoom(0.2),
+            tf.keras.layers.RandomContrast(0.1),
+        ])
     def create_labels(self, file_list):
         """
         Extract class names from train.txt/test.txt
@@ -50,6 +56,7 @@ class DataTransformation:
         }
 
         return class_to_index
+
     
     def encode_labels(self, labels, class_to_index):
         """
@@ -77,7 +84,9 @@ class DataTransformation:
             self.config.image_size
         )
 
-        image = tf.keras.applications.mobilenet_v2.preprocess_input(image)
+        image = tf.cast(image, tf.float32)
+
+        image = tf.keras.applications.efficientnet.preprocess_input(image)
 
         return image, label
 
@@ -105,7 +114,7 @@ class DataTransformation:
 
             logging.info("Labels created successfully.")
             class_to_index = self.create_class_mapping(train_labels)
-
+            
             train_labels = self.encode_labels(
                 train_labels,
                 class_to_index
@@ -128,6 +137,14 @@ class DataTransformation:
             logging.info("TensorFlow datasets created.")
             train_ds = train_ds.map(
                 self.load_image,
+                num_parallel_calls=tf.data.AUTOTUNE
+            )
+
+            train_ds = train_ds.map(
+                lambda x, y: (
+                    self.data_augmentation(x, training=True),
+                    y
+                ),
                 num_parallel_calls=tf.data.AUTOTUNE
             )
             train_ds = train_ds.shuffle(
